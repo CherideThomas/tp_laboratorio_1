@@ -17,14 +17,14 @@
  * @param kilometros Cantidad de kilometros ingresado por el usuario que se mostrara en pantalla
  * @param aerolineas Precio de Aerolineas ingresado por el usuario que se mostrara en pantalla
  * @param latam Precio de Latam ingresado por el usuario que se mostrara en pantalla
- * @return opcion Retorna un valor que sera la opcion ingresada
+ * @return opcion Retorna un numero del 1 al 6 que sera la opcion ingresada
  */int menu(float kilometros, float aerolineas, float latam)
 {
 	int opcion;
 
-	system("cls");
+	system("cls"); //Limpio pantalla
 	//Cuerpo del menu
-	printf("-+-+- UTN - AGENCIA DE VIAJES -+-+- \n\n");
+	printf("-+-+- UTN - AGENCIA DE VIAJES -+-+- \n");
 	printf("\n*** Menu de Opciones ***\n\n");
 	printf("1- Ingresar kilometros(Km = %.2f)\n", kilometros);
 	printf("2- Ingresar precio de vuelos(Aerolineas = %.2f, Latam = %.2f)\n", aerolineas, latam);
@@ -32,9 +32,8 @@
 	printf("4- Informar resultados\n");
 	printf("5- Carga forzada\n");
 	printf("6- Salir\n");
-	//Pido un numero que sera la opcion elegida
+	//Pido un numero que sera la opcion ingresada por el usuario
 	utn_getNumero(&opcion, "\n-Ingrese opcion: ", "\nERROR. Opcion invalida. Debe ingresar una opcion valida (del 1 al 6)", 1, 6, 2);
-
 	system("cls");
 
 	return opcion;
@@ -146,13 +145,13 @@
  	auxUnitarioAerolineas = *pUnitarioAerolineas;
  	auxUnitarioLatam = *pUnitarioLatam;
  	auxDiferencia = *pDiferencia;
-
  	retorno = -1;
+
  	if(kilometros > 0 && aerolineas > 0 && latam > 0 && pDebitoAerolineas != NULL && pDebitoLatam != NULL
  	&& pCreditoAerolineas != NULL && pCreditoLatam != NULL && pBitcoinAerolineas != NULL && pBitcoinLatam != NULL
  	&& pUnitarioAerolineas != NULL && pUnitarioLatam != NULL && pDiferencia != NULL) // <-- validacion de punteros
  	{
- 		//Llamamiento a las funciones para realizar los calculos
+ 		//Llamamiento de las funciones para realizar los calculos
  		if(calcularDebito(auxAerolineas, auxLatam, &auxDebitoAerolineas, &auxDebitoLatam) == 0
  		&& calcularCredito(auxAerolineas, auxLatam, &auxCreditoAerolineas, &auxCreditoLatam) == 0
  		&& calcularBitcoin(auxAerolineas, auxLatam, &auxAerolineasBTC, &auxLatamBTC) == 0
